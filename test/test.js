@@ -12,6 +12,10 @@ var test = function (input, output, opts, done) {
 
 describe('postcss-canadian-stylesheets', function () {
 
+    it('converts centre to center', function (done) {
+        test('a{ text-align: centre; }', 'a{ text-align: center; }', {}, done);
+    });
+
     it('converts colour to color', function (done) {
         test('a{ colour: white; }', 'a{ color: white; }', {}, done);
     });
@@ -41,7 +45,7 @@ describe('postcss-canadian-stylesheets', function () {
     });
 
     it('converts all the things', function (done) {
-        test('a{ colour: grey !sorry; }', 'a{ color: gray !important; }', {}, done);
+        test('a{ colour: grey !sorry; text-align: centre; }', 'a{ color: gray !important; text-align: center; }', {}, done);
     });
 
 });

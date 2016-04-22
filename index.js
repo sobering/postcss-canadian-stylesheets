@@ -7,6 +7,7 @@ module.exports = postcss.plugin('postcss-canadian-stylesheets', function (opts) 
         css.eachDecl(function transformDecl(decl) {
             decl.prop  = decl.prop.replace('colour', 'color');
             decl.value = decl.value.replace('grey', 'gray');
+            decl.value = decl.value.replace('centre', 'center');
 
             if (decl.value.indexOf('!sorry') >= 0) {
                 decl.value = decl.value.replace(/\s*!sorry\s*/, '');
